@@ -552,7 +552,7 @@ footer {
   border: 2px solid #ff4e60;
 }
 
-.validation-messages--error {
+.error-message {
   font-family: 'Roboto', sans-serif;
   font-size: 10px;
   font-weight: normal;
@@ -561,10 +561,34 @@ footer {
   padding: 0;
 }
 
-.validation-messages--success {
+.success-message {
+  height: 663.84px;
+  width: 420px;
+  display: none;
   color: white;
   line-height: 1.4em;
 }
 
+  .success-message--visible {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
 
+.success-message__content {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: normal;
+  width: 100%;
+  font-size: 30px;
+  line-height: 51px;
+  position: absolute;
+  top: 245px;
+}
+
+.btn-submit--close {
+  align-self: flex-end;
+}
 

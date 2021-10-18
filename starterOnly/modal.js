@@ -34,36 +34,6 @@ closeBtn.addEventListener('click', closeModal);
 const form = document.forms['reserve'];
 let err = 0;
 
-/*
-const firstNameProp = [
-  "text",
-  "first",
-  "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.-\s]{2,99}$",
-  "Veuillez entrer un prénom d'au moins 2 caractères."
-];
-
-const lastNameProp = [
-  "text",
-  "last",
-  "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.-\s]{2,99}$",
-  "Veuillez entrer un nom d'au moins 2 caractères."
-];
-
-const emailProp = [
-  "email",
-  "email",
-  "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$",
-  "Veuillez entrer un email valide."
-];
-
-const quantityProp [
-  "number",
-  "quantity",
-  "^[0-9]{1,9999}$",
-  "Veuillez entrer un nombre entre 0 et 9999."
-];
-*/
-
 
 // Check input type text, number and email
 function checkInputText(inputId, regex, errMessage) {
@@ -102,8 +72,8 @@ function checkLegal() {
 
 // Check all
 function checkAllInputs() {
-  checkInputText("first", "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.-\s]{2,99}$", "Veuillez entrer un prénom d'au moins 2 caractères.");
-  checkInputText("last", "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.-\s]{2,99}$", "Veuillez entrer un nom d'au moins 2 caractères.");
+  checkInputText("first", "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.\s-]{2,99}$", "Veuillez entrer un prénom d'au moins 2 caractères.");
+  checkInputText("last", "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.\s-]{2,99}$", "Veuillez entrer un nom d'au moins 2 caractères.");
   checkInputText("email", "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$", "Veuillez entrer un email valide.");
   checkInputText("quantity", "^[0-9]{1,9999}$", "Veuillez entrer un nombre entre 0 et 9999.");
   checkLocation();
@@ -113,7 +83,7 @@ function checkAllInputs() {
 //Display error messages
 function displayErrorMessages(parent, errMessage) {
   const p = document.createElement('p');
-  p.classList.add("validation-messages", "validation-messages--error");
+  p.classList.add("error-message");
   p.textContent = errMessage;
   parent.append(p);
   err++;
@@ -121,7 +91,7 @@ function displayErrorMessages(parent, errMessage) {
 
 // Remove error messages
 function removeErrorMessages() {
-  const childs = document.querySelectorAll('.validation-messages');
+  const childs = document.querySelectorAll('.error-message');
   if (childs.length > 0) {
     for (let child of childs) {
       const parent = child.parentNode;
@@ -129,23 +99,18 @@ function removeErrorMessages() {
     }
   }
   let redInputs = document.querySelectorAll('.red-input');
-  console.log(redInputs);
   if (redInputs.length > 0) {
     for (let redInput of redInputs) {
       redInput.classList.remove("red-input");
     }
   }
-  console.log(document.querySelectorAll('.red-input'));
 }
   
 // Display success message
 function displaySuccessMessage() {
-  setTimeout(closeModal, 5000);
   form.style.display = "none";
-  const successMessage = document.createElement('p');
-  successMessage.classList.add("validation-messages", "validation-messages--success");
-  successMessage.textContent = "Votre inscription a bien été envoyée, merci et à très bientôt";
-  document.querySelector('.modal-body').append(successMessage);
+  const successMessage = document.querySelector(".success-message");
+  successMessage.classList.add("success-message--visible");
 }
 
 
@@ -158,7 +123,12 @@ form.addEventListener('submit', function(e) {
   if (err === 0) {
     displaySuccessMessage();
   }
-})
+});
+
+
+//red btn close
+const btnClose = document.querySelector(".btn-submit--close");
+btnClose.addEventListener('click', closeModal);
 
 
 
