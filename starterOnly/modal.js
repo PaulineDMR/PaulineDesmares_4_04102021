@@ -71,12 +71,13 @@ function checkInputText(inputId, regex, errMessage) {
   let eltValue = elt.value;
   let regEx = new RegExp(regex);
   if (!regEx.test(eltValue)) {
-    const parent = elt.parentNode;
+    displayErrorMessages(elt.parentNode, errMessage);
+    /*const parent = elt.parentNode;
     const p = document.createElement('p');
     p.classList.add("validation-messages", "validation-messages--error");
     p.textContent = errMessage;
     parent.append(p);
-    err++;
+    err++;*/
   }
 }
 
@@ -92,12 +93,13 @@ function checkLocation() {
     }   
   }
   if (x === options.length) {
-    const parent = document.querySelector(".locations");
+    displayErrorMessages(document.querySelector(".locations"), "Veuillez selectionner une ville.");
+    /*const parent = document.querySelector(".locations");
     const p = document.createElement('p');
     p.classList.add("validation-messages", "validation-messages--error");
     p.textContent = "Veuillez selectionner une ville.";
     parent.append(p);
-    err++;
+    err++;*/
   }
 }
 
@@ -105,11 +107,13 @@ function checkLocation() {
 function checkLegal() {
   const checkbox = document.getElementById('checkbox1');
   if (!checkbox.checked) {
-    const parent = document.querySelector(".locations");
+    displayErrorMessages(document.querySelector(".legals"), "Vous devez accepter nos conditions d'utilisation.")
+    /*const parent = document.querySelector(".legals");
     const p = document.createElement('p');
     p.classList.add("validation-messages", "validation-messages--error");
     p.textContent = "Vous devez accepter nos conditions d'utilisation.";
-    err++;
+    parent.append(p);
+    err++;*/
   }
 }
 
@@ -121,6 +125,15 @@ function checkAllInputs() {
   checkInputText("quantity", "^[0-9]{1,9999}$", "Veuillez entrer un nombre entre 0 et 9999.");
   checkLocation();
   checkLegal();
+}
+
+//Display error messages
+function displayErrorMessages(parent, errMessage) {
+  const p = document.createElement('p');
+  p.classList.add("validation-messages", "validation-messages--error");
+  p.textContent = errMessage;
+  parent.append(p);
+  err++;
 }
 
 // Remove error messages

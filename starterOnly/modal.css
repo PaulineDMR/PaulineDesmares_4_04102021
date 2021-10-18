@@ -534,23 +534,6 @@ footer {
   .hero-headline {
     font-size: 1.8em;
   }
-  .hero-text {
-    width: unset;
-    font-size: 1.3rem;
-  }
-  .hero-img img {
-    border-radius: 10px;
-    margin-top: 40px;
-  }
-  .hero-section > .btn-signup {
-    display: block;
-    margin: 32px auto 10px;
-    padding: 12px 35px;
-  }
-  .copyrights {
-    margin-top: 50px;
-    text-align: center;
-  }
 }
 
 @keyframes modalopen {
@@ -565,20 +548,17 @@ footer {
 
 /* Form Error messages */
 
-.validation-messages{
-  font-family: var(--font-default);
-  font-size: 17px;
-  font-weight: normal;
-  color: #fe142f;
-}
-
 .validation-messages--error {
-  color: #fe142f;
-  line-height: 1.4em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  font-weight: normal;
+  line-height: 14px;
+  color: #ff4e60;
+  padding: 0;
 }
 
 .validation-messages--success {
-  color: #4adeb1;
+  color: white;
   line-height: 1.4em;
 }
 
