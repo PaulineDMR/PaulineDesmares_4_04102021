@@ -517,6 +517,42 @@ footer {
   }
 }
 
+@media screen and (max-width: 500px) {
+  /*.hero-section {
+    display: block;
+    box-shadow: unset;
+  }*/
+  .hero-content {
+    min-width: auto;
+  }
+  /*.hero-content::after {
+    content: unset;
+  }
+  .hero-content .btn-signup {
+    display: none;
+  }*/
+  .hero-headline {
+    font-size: 1.8em;
+  }
+  .hero-text {
+    width: unset;
+    font-size: 1.3rem;
+  }
+  .hero-img img {
+    border-radius: 10px;
+    margin-top: 40px;
+  }
+  .hero-section > .btn-signup {
+    display: block;
+    margin: 32px auto 10px;
+    padding: 12px 35px;
+  }
+  .copyrights {
+    margin-top: 50px;
+    text-align: center;
+  }
+}
+
 @keyframes modalopen {
   from {
     opacity: 0;
