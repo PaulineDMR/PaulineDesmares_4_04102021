@@ -37,12 +37,21 @@ let err = 0;
 
 // Check input type text, number and email
 function checkInputText(inputId, regex, errMessage) {
-  const elt = document.getElementById(inputId)
+  const elt = document.getElementById(inputId);
   let eltValue = elt.value;
   let regEx = new RegExp(regex);
   if (!regEx.test(eltValue)) {
     displayErrorMessages(elt.parentNode, errMessage);
     elt.classList.add("red-input");
+  }
+}
+
+// Check date of birth
+function checkDateOfBirth() {
+  const elt = document.getElementById("birthdate");
+  let eltValue = elt.value;
+  if (eltValue.length === 0) {
+    displayErrorMessages(elt.parentNode, 'Veuillez renseigner votre date de naissance');
   }
 }
 
@@ -76,6 +85,7 @@ function checkAllInputs() {
   checkInputText("last", "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.\s-]{2,99}$", "Veuillez entrer un nom d'au moins 2 caractères.");
   checkInputText("email", "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$", "Veuillez entrer un email valide.");
   checkInputText("quantity", "^[0-9]{1,9999}$", "Veuillez entrer un nombre entre 0 et 9999.");
+  checkDateOfBirth();
   checkLocation();
   checkLegal();
 }
@@ -126,7 +136,7 @@ form.addEventListener('submit', function(e) {
 });
 
 
-//red btn close
+// red btn close
 const btnClose = document.querySelector(".btn-submit--close");
 btnClose.addEventListener('click', closeModal);
 
