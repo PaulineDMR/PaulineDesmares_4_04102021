@@ -72,12 +72,7 @@ function checkInputText(inputId, regex, errMessage) {
   let regEx = new RegExp(regex);
   if (!regEx.test(eltValue)) {
     displayErrorMessages(elt.parentNode, errMessage);
-    /*const parent = elt.parentNode;
-    const p = document.createElement('p');
-    p.classList.add("validation-messages", "validation-messages--error");
-    p.textContent = errMessage;
-    parent.append(p);
-    err++;*/
+    elt.classList.add("red-input");
   }
 }
 
@@ -94,12 +89,6 @@ function checkLocation() {
   }
   if (x === options.length) {
     displayErrorMessages(document.querySelector(".locations"), "Veuillez selectionner une ville.");
-    /*const parent = document.querySelector(".locations");
-    const p = document.createElement('p');
-    p.classList.add("validation-messages", "validation-messages--error");
-    p.textContent = "Veuillez selectionner une ville.";
-    parent.append(p);
-    err++;*/
   }
 }
 
@@ -108,12 +97,6 @@ function checkLegal() {
   const checkbox = document.getElementById('checkbox1');
   if (!checkbox.checked) {
     displayErrorMessages(document.querySelector(".legals"), "Vous devez accepter nos conditions d'utilisation.")
-    /*const parent = document.querySelector(".legals");
-    const p = document.createElement('p');
-    p.classList.add("validation-messages", "validation-messages--error");
-    p.textContent = "Vous devez accepter nos conditions d'utilisation.";
-    parent.append(p);
-    err++;*/
   }
 }
 
@@ -145,6 +128,14 @@ function removeErrorMessages() {
       parent.removeChild(child);
     }
   }
+  let redInputs = document.querySelectorAll('.red-input');
+  console.log(redInputs);
+  if (redInputs.length > 0) {
+    for (let redInput of redInputs) {
+      redInput.classList.remove("red-input");
+    }
+  }
+  console.log(document.querySelectorAll('.red-input'));
 }
   
 // Display success message

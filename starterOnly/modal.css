@@ -190,7 +190,7 @@ main {
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 14px;
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
@@ -547,6 +547,10 @@ footer {
 }
 
 /* Form Error messages */
+
+.red-input {
+  border: 2px solid #ff4e60;
+}
 
 .validation-messages--error {
   font-family: 'Roboto', sans-serif;
