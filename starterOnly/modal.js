@@ -7,6 +7,9 @@ function editNav() {
   }
 }
 
+const mobileMenuIcon = document.querySelector('.icon');
+mobileMenuIcon.addEventListener('click', editNav);
+
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
