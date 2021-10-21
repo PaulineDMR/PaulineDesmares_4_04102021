@@ -85,8 +85,8 @@ function checkLegal() {
 
 // Check all
 function checkAllInputs() {
-  checkInputText("first", "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.\s-]{2,99}$", "Veuillez entrer un prénom d'au moins 2 caractères.");
-  checkInputText("last", "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.\s-]{2,99}$", "Veuillez entrer un nom d'au moins 2 caractères.");
+  checkInputText("first", "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ. -]{2,99}$", "Veuillez entrer un prénom d'au moins 2 caractères.");
+  checkInputText("last", "^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ. -]{2,99}$", "Veuillez entrer un nom d'au moins 2 caractères.");
   checkInputText("email", "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$", "Veuillez entrer un email valide.");
   checkInputText("quantity", "^[0-9]{1,9999}$", "Veuillez entrer un nombre entre 0 et 9999.");
   checkDateOfBirth();
