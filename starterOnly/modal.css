@@ -519,19 +519,10 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
-  /*.hero-section {
-    display: block;
-    box-shadow: unset;
-  }*/
+  
   .hero-content {
     min-width: auto;
   }
-  /*.hero-content::after {
-    content: unset;
-  }
-  .hero-content .btn-signup {
-    display: none;
-  }*/
   .hero-headline {
     font-size: 1.8em;
   }
@@ -587,6 +578,18 @@ footer {
   line-height: 51px;
   position: absolute;
   top: 245px;
+}
+
+@media screen and (max-width: 500px) {
+  
+  .success-message {
+    width: 100%;
+    height: 450px;
+  }
+
+  .success-message__content {
+    top: 120px;
+  }
 }
 
 .btn-submit--close {
