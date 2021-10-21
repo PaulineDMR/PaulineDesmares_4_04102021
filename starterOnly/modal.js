@@ -52,6 +52,7 @@ function checkDateOfBirth() {
   let eltValue = elt.value;
   if (eltValue.length === 0) {
     displayErrorMessages(elt.parentNode, 'Veuillez renseigner votre date de naissance');
+    elt.classList.add("red-input");
   }
 }
 
